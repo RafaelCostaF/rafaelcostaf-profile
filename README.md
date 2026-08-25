@@ -1,105 +1,62 @@
-# Tutorial auto-guiado: Next.js para quem já sabe React
+# Rafael Costa — Currículo / Portfólio
 
-Este repositório organiza um tutorial prático de Next.js para estudantes que já conhecem React, mas ainda não tiveram contato com Next.js.
+Site pessoal de currículo, construído com Next.js e publicado como export estático. Reúne experiência profissional, formação, skills e projetos de pesquisa em um único lugar, com foco em performance, SEO e uma versão pronta para impressão/PDF.
 
-O objetivo é construir, ao longo das etapas, um currículo pessoal em formato de landing page estática, com foco em conceitos essenciais do framework e em um resultado final útil e apresentável.
+🔗 **Site:** _em breve_ <!-- TODO: atualizar com a URL após o deploy -->
 
-Ao final, o site é publicado como conteúdo estático no Cloudflare Pages. O passo a passo de publicação está na [Etapa 8](tutorial/08-deploy.md).
+## Stack
 
-## Objetivo do projeto
+- [Next.js](https://nextjs.org/) (App Router, static export)
+- [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [lucide-react](https://lucide.dev/) para ícones
+- Deploy como site estático no [Cloudflare Pages](https://pages.cloudflare.com/)
 
-Ao final, você terá:
+## Funcionalidades
 
-- um site pessoal com layout profissional
-- um currículo em formato de landing page
-- conhecimento prático de Next.js App Router
-- familiaridade com TypeScript, Tailwind, metadata SEO e build estático
+- Conteúdo centralizado em [`data/resume.ts`](data/resume.ts) — uma única fonte de verdade para todas as seções do site
+- Metadata e Open Graph dinâmicos, imagem de compartilhamento gerada em runtime ([`app/opengraph-image.tsx`](app/opengraph-image.tsx))
+- `sitemap.xml` e `robots.txt` gerados automaticamente
+- Dados estruturados (JSON-LD, schema.org `Person`) para SEO
+- Botão de impressão com estilos dedicados para exportação em PDF
 
-## Público-alvo
-
-- estudantes de React que querem aprender Next.js
-- devs que já entenderam componentes, props, estado e eventos
-- pessoas que querem construir um portfólio ou currículo online com uma base sólida em frontend moderno
-
-## Tecnologias principais
-
-- Next.js 16
-- React
-- TypeScript
-- Tailwind CSS
-- static export para deploy em Cloudflare Pages
-- lucide-react para ícones
-
-> Este tutorial foi validado com Next.js 16 e Tailwind CSS v4.
-
-## Estrutura do tutorial
-
-Este repositório será executado em etapas sequenciais. Cada etapa introduz um conceito novo do Next.js e conclui com um checkpoint do projeto.
-
-- Etapa 0: [Fundamentos do tutorial e visão geral do projeto](tutorial/00-introducao.md)
-- Etapa 1: [Setup inicial do projeto Next.js](tutorial/01-setup.md)
-- Etapa 2: [Layout raiz, fontes e base do Tailwind](tutorial/02-layout.md)
-- Etapa 3: [Estrutura de dados do currículo](tutorial/03-dados.md)
-- Etapa 4: [Componentização das seções](tutorial/04-componentes.md)
-- Etapa 5: [Imagens e ícones](tutorial/05-imagens.md)
-- Etapa 6: [Metadata e SEO](tutorial/06-seo.md)
-- Etapa 7: [Interatividade mínima com Client Component](tutorial/07-client-component.md)
-- Etapa 8: [Static export e deploy no Cloudflare Pages](tutorial/08-deploy.md)
-- Etapa 9: [Polimento final e próximos passos](tutorial/09-polimento.md)
-
-## Checkpoints por módulo
-
-Cada etapa termina com uma tag git para registrar o progresso do projeto.
-
-Exemplo:
+## Rodando localmente
 
 ```bash
-git tag modulo-00
+npm install
+npm run dev
 ```
 
-## Como usar os checkpoints
+Acesse [http://localhost:3000](http://localhost:3000).
 
-Cada tag `modulo-XX` corresponde ao estado do projeto ao final daquela etapa.
-
-Você pode navegar por elas para estudar ou comparar o código:
+Outros comandos:
 
 ```bash
-# ver o projeto no estado de uma etapa específica
-git checkout modulo-04
-
-# voltar para a versão mais recente
-git switch -
-# ou
-git checkout main
+npm run build   # build de produção (export estático em out/)
+npm run start   # serve o build de produção
+npm run lint    # lint com ESLint
 ```
 
-Use isso para revisar como o projeto evoluiu a cada etapa, sem perder o seu progresso na branch `main`.
+## Estrutura
 
-## Pré-requisitos
+```
+app/
+  components/   # seções da página (Hero, Experience, Skills, Projects, ...)
+  layout.tsx     # layout raiz e metadata
+  page.tsx       # composição da página
+  sitemap.ts     # sitemap.xml
+  robots.ts      # robots.txt
+  opengraph-image.tsx  # imagem de OG gerada dinamicamente
+data/
+  resume.ts      # conteúdo do currículo (perfil, experiências, skills, projetos)
+public/
+  avatar.svg     # foto de perfil
+```
 
-Antes de começar, você precisa ter instalado:
+## Deploy
 
-- Node.js LTS
-- npm
-- editor de código (VS Code recomendado)
-- terminal básica para rodar comandos
+O site é exportado como HTML/CSS/JS estático (`output: "export"` em [`next.config.ts`](next.config.ts)) e publicado no Cloudflare Pages a partir da saída de `npm run build`.
 
-## Fluxo recomendado
+## Autor
 
-1. Leia a introdução da etapa atual
-2. implemente o passo indicado
-3. rode o projeto localmente
-4. valide os resultados
-5. finalize a etapa e marque o checkpoint
-
-## Por onde começar
-
-Siga as etapas na ordem, usando o índice acima como guia de navegação.
-
-Comece pela introdução em [tutorial/00-introducao.md](tutorial/00-introducao.md),
-que explica o que é o Next.js e apresenta o projeto. Depois, avance uma etapa por
-vez até publicar o currículo.
-
----
-
-Bons estudos!
+**Rafael Costa** — [LinkedIn](https://www.linkedin.com/in/rafaelcostaf) · [GitHub](https://github.com/rafaelcostaf)
