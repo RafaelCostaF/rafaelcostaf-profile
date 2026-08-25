@@ -1,7 +1,8 @@
 {
-  "name": "gs-nextjs",
+  "name": "rafael-costa-resume",
   "version": "0.1.0",
   "private": true,
+  "description": "Personal resume / portfolio site for Rafael Costa, built with Next.js.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
